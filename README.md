@@ -17,15 +17,10 @@ source env/bin/activate
 # Install the dependencies
 pip install -r requirements.txt
 
-# Run jupyter and open the Anonymous Session Demo notebook
-jupyter notebook Anonymous\ Session\ Demo.ipynb
+# Create a kernel for jupyter for this env
+python -m ipykernel install --user --name=guest-session-demo
+
+# Run jupyter and open the Guest Session Demo notebook
+# NOTE: remember to switch to the guest-session-demo in your notebook
+jupyter notebook Guest\ Session\ Demo.ipynb
 ```
-
-## Caveats
-
-This is very much in development. There are a few things to keep in mind while
-testing this.
-
-- There isn't a lot of feedback while whylogs is uploading profiles to WhyLabs. Depending on the amount of data it may take a minute or so.
-- There is a minimum of 4 days of data right now. If you use this feature on a dataset with fewer days or without a notion of time then it won't work. A workaround for the later case is to just log it 4 times with fake timestamps for the past 4 days.
-- We'll spit out a link to `hub.whylabsapp.com` but it should actually point to `observatory.development.whylabsdev.com`, so you'll have to substitute that in manually.
